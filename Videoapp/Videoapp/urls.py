@@ -22,3 +22,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     url(r'^', include('videoapp.urls')),
 ]
+
+
+admin.site.site_header = "VideoApp Administration Portal"
+admin.site.site_title = "VideoApp Administration Portal"

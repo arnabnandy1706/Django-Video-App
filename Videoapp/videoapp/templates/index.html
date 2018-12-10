@@ -39,12 +39,12 @@
       <table class="video-table">
 
           <tr>
-            <th>
+            <th valign="top">
               <img src="{% static 'images/desc-icon.png' %}" width="15" height="15">
               Description:
             </th>
             <td>
-                {{ video.description }}
+                {{ video.description|linebreaks }}
             </td>
           </tr>
 
