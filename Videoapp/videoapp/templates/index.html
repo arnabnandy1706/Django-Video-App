@@ -1,0 +1,67 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
+    <link href="{% static 'style.css' %}" rel="stylesheet" />
+    <title>Video Library</title>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-static-top text-center">
+      <a href="/">
+        <img src="{% static 'images/logo.png' %}" alt="EmployeeManager" width="350" height="150">
+      </a>
+    </nav>
+  
+  <main class="container" role="main">
+
+      <div class="video panel panel-default">
+
+      {% for video in videos %}
+
+      <div class="panel-heading" style="background-color:green">
+        <h2 style="color:yellow" class="panel-title"> <b>{{ video.name }}</b></h2>
+      </div>
+
+    <div class="panel-body" style="background-color:lightblue">
+
+      <div class="video-video">
+        <video width='320' height= '240' controls>
+          <source src="{% static 'videos/' type='video/mp4' %}{{ video.videofile }}">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+
+      <table class="video-table">
+
+          <tr>
+            <th>
+              <img src="{% static 'images/desc-icon.png' %}" width="15" height="15">
+              Description:
+            </th>
+            <td>
+                {{ video.description }}
+            </td>
+          </tr>
+
+          <tr>
+            <th>
+              <img src="{% static 'images/update-icon.png' %}" width="15" height="15">
+              Uploaded on:
+            </th>
+              <td>
+                 {{ video.update }}
+              </td>
+          </tr>
+
+     </table>
+      </div>
+     {% endfor %}
+      </div>
+    </main>
+  </body>
+</html>
